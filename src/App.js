@@ -5,14 +5,14 @@ class App extends PureComponent {
     super(props)
 
     this.state = {
-      
+      message: props.test
     }
   }
 
   render() {
     return (
       <div>
-      test
+      {this.state.message}
       </div>
     )
   }
