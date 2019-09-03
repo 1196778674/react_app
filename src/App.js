@@ -1,21 +1,11 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 
-class App extends PureComponent {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      message: props.test
-    }
-  }
-
+export default class componentName extends Component {
   render() {
     return (
       <div>
-      {this.state.message}
+        home
       </div>
     )
   }
 }
-
-export default App
