@@ -1,11 +1,22 @@
-import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      test
-    </div>
-  );
+import React, { PureComponent } from 'react'
+
+class App extends PureComponent {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        test
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
