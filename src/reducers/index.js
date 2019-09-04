@@ -1,10 +1,8 @@
-import {
-    combineReducers
-} from 'redux'
-import todos from './todo'
+import { combineReducers } from 'redux'
+import appState from './todo'
 
 const reducer = {
-    todos
+    appState
 }
 
 export default combineReducers({

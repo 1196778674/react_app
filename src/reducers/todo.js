@@ -1,7 +1,7 @@
 const initState = {
     test: 1
 }
-const todos = (state = initState, action) => {
+const appState = (state = initState, action) => {
     switch (action.type) {
         case 'ADD_TODO':
             return {
@@ -11,4 +11,4 @@ const todos = (state = initState, action) => {
                 return state
     }
 }
-export default todos
+export default appState
