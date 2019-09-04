@@ -1,43 +1,38 @@
+import React, {
+  Component
+} from 'react'
+import {
+  connect
+} from 'react-redux'
+import {
+  addTodo
+} from '../actions'
 
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
+const mapStateToProps = state => ({
+  todos: state.todos.test
+})
+const mapDispatchToProps = dispatch => ({
+  todo: id => dispatch(addTodo(id))
+})
 
-
-let mapStateToProps
-let mapDispatchToProps
 class App extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      test: this.props.id
-    }
+    this.state = {}
   }
-  mapStateToProps = state => ({
-    id: state.id
-  });
-  mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-      show_state: () => {
-        dispatch('ADD_TODO')
-      }
-    }
-  }
-  
-  show_state () {
-    this.setState({
-      test: this.state.test+1
-    })
-    console.log('store: ', this.props)
+  add(t) {
+    this.props.todo(t)
   }
 
   render() {
-    return (
-      <div>
-      {this.state.test}
-      
-        <button onClick={() => this.show_state()}>show</button>
-      </div>
+    return ( < div > {
+        this.props.todos
+      } < button onClick = {
+        () => {
+          this.add(1)
+        }
+      } > button < /button> < /div >
     )
   }
 }
