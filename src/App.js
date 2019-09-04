@@ -32,8 +32,7 @@ class App extends PureComponent {
         () => {
           this.add(2)
         }
-      } > button < /button> < /
-      div >
+      } > button < /button> < /div >
     )
   }
 }
