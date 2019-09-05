@@ -7,5 +7,5 @@ export const addTodo = text => ({
 export const thunkTodo = (num) => dispatch => {
         setTimeout(() => {
             dispatch(addTodo(num))
-        }, 2000);
+        }, 1000);
 }

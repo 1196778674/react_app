@@ -21,7 +21,9 @@ class App extends Component {
   }
   addStore(num) {
     //同步
-    // this.props.todo(num)
+    this.props.todo(num)
+  }
+  thunkAdd(num){
     //异步
     this.props.thunk(num)
   }
@@ -39,6 +41,7 @@ class App extends Component {
     return ( <div> 
       <div>store的数据： { this.props.appState } </div>
       <button onClick = { () => { this.addStore(this.state.storeNum) } } > store add </button> 
+      <button onClick = { () => { this.thunkAdd(this.state.storeNum) } } > store async add </button> 
       <div>当前组件数据： {this.state.num}</div>
       <button onClick = { () => { this.add(this.state.storeNum) } } > state add </button> 
       </div>
