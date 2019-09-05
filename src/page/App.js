@@ -20,7 +20,9 @@ class App extends Component {
     }
   }
   addStore(num) {
-    this.props.todo(num)
+    //同步
+    // this.props.todo(num)
+    //异步
     this.props.thunk(num)
   }
   add (n) {

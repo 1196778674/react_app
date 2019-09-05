@@ -4,10 +4,8 @@ export const addTodo = text => ({
 })
 
 // thunk
-export const thunkTodo = function (num) {
-    return dispatch => {
+export const thunkTodo = (num) => dispatch => {
         setTimeout(() => {
             dispatch(addTodo(num))
         }, 2000);
-    }
 }
