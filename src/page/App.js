@@ -1,52 +1,29 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { addTodo, thunkTodo } from '../actions'
+import {Route, Link} from 'react-router-dom'
 
-const mapStateToProps = state => ({
-  appState: state.appState.test
-})
-const mapDispatchToProps = dispatch => ({
-  todo: num => dispatch(addTodo(num)),
-  thunk: num => dispatch(thunkTodo(num))
-})
+// 路由组件
+import ChangeRoute from '../components/ChangeRoute'
+import StateCom from './State'
+
+
 
 class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      storeNum: 1,
-      num: 1
+      
     }
   }
-  addStore(num) {
-    //同步
-    this.props.todo(num)
-  }
-  thunkAdd(num){
-    //异步
-    this.props.thunk(num)
-  }
-  add (n) {
-    this.setState({
-      num: this.state.num+n
-    })
-  }
-  componentWillMount() {
-    console.log(this.props);
-  }
   
-
+  
   render() {
     return ( <div> 
-      <div>store的数据： { this.props.appState } </div>
-      <button onClick = { () => { this.addStore(this.state.storeNum) } } > store add </button> 
-      <button onClick = { () => { this.thunkAdd(this.state.storeNum) } } > store async add </button> 
-      <div>当前组件数据： {this.state.num}</div>
-      <button onClick = { () => { this.add(this.state.storeNum) } } > state add </button> 
+      <StateCom />
+      <ChangeRoute />
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App
