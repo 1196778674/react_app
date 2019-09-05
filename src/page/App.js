@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import {Route, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 // 路由组件
 import ChangeRoute from '../components/ChangeRoute'
 import StateCom from './State'
-
 
 
 class App extends Component {
@@ -19,8 +18,9 @@ class App extends Component {
   
   render() {
     return ( <div> 
-      <StateCom />
-      <ChangeRoute />
+        <div><Link to="/list">跳转到列表页</Link></div>
+        <StateCom />
+        <ChangeRoute />
       </div>
     )
   }

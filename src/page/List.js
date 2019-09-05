@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import {Link} from 'react-router-dom'
 
 class List extends PureComponent {
     constructor(props) {
@@ -11,7 +12,7 @@ class List extends PureComponent {
 
     render() {
         return (
-            <div>list</div>
+            <div><Link to="/index">首页</Link></div>
         )
     }
 }

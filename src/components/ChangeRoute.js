@@ -16,10 +16,10 @@ class ChangeRoute extends PureComponent {
         return (
             <div className="margin-top">
                 <div>子路由切换 : </div>
-                <Link to="/home">Home</Link> | <Link to="/test">Test</Link>
+                <Link to="/index/home">Home</Link> | <Link to="/index/test">Test</Link>
                 <Switch>
-                    <Route path="/home" component={Home}/>
-                    <Route path="/test" component={Test}/>
+                    <Route path="/index/home" component={Home}/>
+                    <Route path="/index/test" component={Test}/>
                 </Switch>
             </div>
         )

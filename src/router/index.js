@@ -8,7 +8,7 @@ import State from '../page/State'
 // 路由配置
 const routes = [
     {
-        path: '/',
+        path: '/index',
         component: App,
         routes: [
             {
