@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import {Link} from 'react-router-dom'
-
+import Home from '../components/Home'
 class List extends PureComponent {
     constructor(props) {
         super(props)
@@ -12,7 +12,7 @@ class List extends PureComponent {
 
     render() {
         return (
-            <div><Link to="/index">首页</Link></div>
+            <div><Home/><Link to="/index">欢迎来到react</Link></div>
         )
     }
 }

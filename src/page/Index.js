@@ -18,7 +18,7 @@ class App extends Component {
   
   render() {
     return ( <div> 
-        <div><Link to="/list">跳转到列表页</Link></div>
+        <div><Link to="/">欢迎页</Link></div>
         <StateCom />
         <ChangeRoute />
       </div>

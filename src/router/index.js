@@ -1,15 +1,15 @@
-// App入口
-import App from '../page/App'
+// 子路由页面
+import Index from '../page/Index'
 import Home from '../components/Home'
 import Test from '../components/Test'
-
+// 列表页
 import List from '../page/List'
 import State from '../page/State'
 // 路由配置
 const routes = [
     {
         path: '/index',
-        component: App,
+        component: Index,
         routes: [
             {
                 path: '/home',
@@ -22,7 +22,7 @@ const routes = [
         ]
     },
     {
-        path: '/list',
+        path: '/',
         component: List
     },
     {
