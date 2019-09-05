@@ -4,11 +4,12 @@ import { addTodo, thunkTodo } from '../actions'
 
 
 const mapStateToProps = state => ({
-    appState: state.appState.test
+  test: state.appState.test,
+  geturl: state.appState.geturl
   })
   const mapDispatchToProps = dispatch => ({
     todo: num => dispatch(addTodo(num)),
-    thunk: num => dispatch(thunkTodo(num))
+    thunk: num => dispatch(thunkTodo()),
   })
 
 class States extends PureComponent {
@@ -25,9 +26,9 @@ class States extends PureComponent {
         //同步
         this.props.todo(num)
       }
-      thunkAdd(num){
+      thunk(num){
         //异步
-        this.props.thunk(num)
+        this.props.thunk()
       }
       add (n) {
         this.setState({
@@ -38,9 +39,10 @@ class States extends PureComponent {
     render() {
         return (
             <div>
-                <div>store的数据： { this.props.appState } </div>
+                <div>store的数据： { this.props.test } </div>
                 <button onClick = { () => { this.addStore(this.state.storeNum) } } > store add </button> 
-                <button onClick = { () => { this.thunkAdd(this.state.storeNum) } } > store async add </button> 
+                <div>{this.props.geturl}</div>
+                <button onClick = { () => { this.thunk() } } > 异步请求数据 </button> 
                 <div>当前组件数据： {this.state.num}</div>
                 <button onClick = { () => { this.add(this.state.storeNum) } } > state add </button>
             </div>
