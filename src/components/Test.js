@@ -1,21 +1,25 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 
-class Test extends Component {
-    constructor(props) {
-        super(props)
+const Test = () => {
+    const [state, setState] = useState({a: 0})
+    const [test, setTest] = useState({b: 0})
+    useEffect(() => {
+        state.a++;
+        return () => {
+            state.a = 0
+        };
+    }, [state]);
+    
+    let ttt = useMemo(() => {
+        return state.a + test.b
+    } , [state.a, test.b])
 
-        this.state = {
-            
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                Test
-            </div>
-        )
-    }
+    return (
+        <div>
+            {state.a} | {ttt}
+            <button onClick={() => setState({...state})}>add</button>
+        </div>
+    )
 }
 
 export default Test
