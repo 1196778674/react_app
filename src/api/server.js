@@ -2,7 +2,8 @@ import axios from 'axios';
 import qs from 'qs'
 
 const service = axios.create({
-    baseURL: 'https://58coin-support.zendesk.com',
+    // baseURL: 'https://58coin-support.zendesk.com',
+    baseURL: '/',
     timeout: 15000,
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
