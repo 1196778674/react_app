@@ -141,6 +141,7 @@
     ]
   },
   "devDependencies": {
+    "prerender-spa-plugin": "^3.4.0",
     "redux-thunk": "^2.3.0"
   }
 }

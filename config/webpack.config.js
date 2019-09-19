@@ -29,6 +29,10 @@ const eslint = require('eslint');
 
 const postcssNormalize = require('postcss-normalize');
 
+// 预渲染
+const PrerenderSPAPlugin = require('prerender-spa-plugin')
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
+
 const appPackageJson = require(paths.appPackageJson);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -604,6 +608,15 @@ module.exports = function(webpackEnv) {
             files: manifestFiles,
           };
         },
+      }),
+      // 预渲染
+      new PrerenderSPAPlugin({
+        staticDir: path.join(__dirname, '../dist'),
+        routes: [ '/' ],
+        renderer: new Renderer({
+          renderAfterTime: 5000,
+          headless: true
+        })
       }),
       // Moment.js is an extremely popular library that bundles large locale files
       // by default due to how Webpack interprets its code. This is a practical
