@@ -1,19 +1,30 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { addTodo } from '../actions'
 
-class Home extends PureComponent {
-    constructor(props) {
-        super(props)
+const mapStateToProps = state => ({
+    test: state.appState.test
+})
+const mapDispatchToProps = dispatch => ({
+    todo: num => dispatch(addTodo(num))
+})
 
-        this.state = {
+const Home = (props) => {
+    const [state, setState] = useState(props)
+    useEffect(() => {
+        console.log('state: ', props)
+        return () => {
             
-        }
-    }
-
-    render() {
-        return (
-            <div>home</div>
-        )
-    }
+        };
+    }, [props.test]);
+    return (
+        <div>
+            Home
+            <p>{state.test}</p>
+            <button onClick={() => setState({...state, test: state.test + 1})}>setState</button>
+            <p></p>
+        </div>
+    )
 }
 
-export default Home
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
