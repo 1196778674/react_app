@@ -9,11 +9,8 @@
       content="Web site created using create-react-app"
     />
     <title>React App</title>
-  </head>
-  <body>
-    <div id="root"></div>
     <script>
-      window.onload = function() {
+    (function() {
         // 阻止双击放大
         var lastTouchEnd = 0;
         document.addEventListener('touchstart', function(event) {
@@ -32,7 +29,10 @@
         document.addEventListener('gesturestart', function(event) {
           event.preventDefault();
         });
-      }//苹果手机禁止缩放
+      })()
     </script>
+  </head>
+  <body>
+    <div id="root"></div>
   </body>
 </html>
