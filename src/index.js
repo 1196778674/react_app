@@ -7,11 +7,8 @@ import routeConfig from './router'
 import './asset/less/index.less'
 
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk';
-import rootReducer from './reducers'
+import store from './store'
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
 const rootApp = document.getElementById('root')
 
 

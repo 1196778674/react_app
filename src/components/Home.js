@@ -2,29 +2,35 @@ import React, { PureComponent, useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
-const mapStateToProps = state => ({
-    test: state.appState.test
-})
-const mapDispatchToProps = dispatch => ({
-    todo: num => dispatch(addTodo(num))
-})
+const mapStoreProps = (store) => {
+    return {
+        test: store.appState.test
+    }
+}
+
+const mapStoreDispatch = (dispatch) => {
+    return {
+        todo: num => dispatch(addTodo(num))
+    }
+}
 
 const Home = (props) => {
     const [state, setState] = useState(props)
     useEffect(() => {
-        console.log('state: ', props)
+        state.test > 1 && props.todo(1)
         return () => {
             
         };
-    }, [props.test]);
+    }, [state.test]);
     return (
         <div>
             Home
             <p>{state.test}</p>
             <button onClick={() => setState({...state, test: state.test + 1})}>setState</button>
-            <p></p>
+            <p>{props.test}</p>
+            <button onClick={() => props.todo(1)}>setStore</button>
         </div>
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStoreProps, mapStoreDispatch)(Home)
