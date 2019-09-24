@@ -1,6 +1,7 @@
+import { ADD_TODO, SET_NAME } from './actionType'
 import testApi from '../api/testApi'
 export const addTodo = text => ({
-    type: 'ADD_TODO',
+    type: ADD_TODO,
     text
 })
 
@@ -16,7 +17,7 @@ const asyncGet = (dispatch) => {
 }
 
 export const setName = text => ({
-    type: 'SET_NAME',
+    type: SET_NAME,
     text
 })
 

@@ -1,15 +1,22 @@
+import {ADD_TODO, SET_NAME} from '../actions/actionType'
 const initState = {
     test: 1,
     geturl: '点击得到链接'
 }
-const appState = (state = initState, action) => {
-    switch (action.type) {
-        case 'ADD_TODO':
-            return Object.assign({}, state, {test: state.test + action.text})
-        case 'SET_NAME':
-            return Object.assign({}, state, {geturl: action.text})
-            default:
-                return state
+
+const reducer = {
+    [ADD_TODO](state, text){
+        return {...state, test: state.test + text}
+    },
+    [SET_NAME](state, text){
+        return {...state, geturl: text}
     }
 }
-export default appState
+export default (state = initState, action) => {
+    const {type, text} = action;
+    if(reducer[type]){
+        return reducer[type](state, text)
+    } else {
+        return state
+    }
+}

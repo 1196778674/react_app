@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
 import appState from './todo'
-
 const reducer = {
     appState
 }
