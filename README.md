@@ -28,7 +28,10 @@ const Renderer = PrerenderSPAPlugin.PuppeteerRenderer<br>
         headless: true // true表示不激活浏览器
     })
 })`
-## 按需加载高阶函数依赖
+
+# 使用react-loadable在router进行分割和懒加载
+
+## 分割代码高阶函数依赖(这个方法不是很优)
 cnpm i -D babel-plugin-syntax-dynamic-import babel-plugin-transform-runtime<br>
 
 ## 引入方法
