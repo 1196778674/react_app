@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
-
+import Slot from './Slot'
 const Test = () => {
     const [state, setState] = useState({a: 0})
     const [test, setTest] = useState({b: 0})
@@ -18,6 +18,9 @@ const Test = () => {
         <div>
             {state.a} | {ttt}
             <button onClick={() => setState({...state})}>add</button>
+            <div>
+                < Slot name="slot" / >
+            </div>
         </div>
     )
 }
